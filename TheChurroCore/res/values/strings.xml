@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+	<!-- COLORES -->
+    <color name="background">#e51c23</color>
+    
+    
+    
+    <!-- ETIQUETAS -->
     <string name="app_name">TheChurroCore</string>
-    <string name="hello_world">Hello world!</string>
 
+    
+    
+    
 </resources>
