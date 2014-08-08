@@ -1,20 +1,29 @@
 <resources>
-
-    <!--
-        Base application theme, dependent on API level. This theme is replaced
-        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
-    -->
     <style name="AppBaseTheme" parent="android:Theme.Light">
-        <!--
-            Theme customizations available in newer API levels can go in
-            res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
-        -->
     </style>
-
-    <!-- Application theme. -->
     <style name="AppTheme" parent="AppBaseTheme">
-        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+    <style name="FixedHeightBox">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">@dimen/demo_view_height</item>
+        <item name="android:layout_margin">@dimen/demo_view_margin</item>
+        <item name="android:gravity">left|center_vertical</item>
+        <item name="android:padding">@dimen/demo_view_margin</item>
+        <item name="android:text">TEST</item>
+    </style>
+    
+    
+    <style name="bigText" parent="@android:style/TextAppearance">
+        <item name="android:textSize">30sp</item>
     </style>
 
+    <!-- COLORES -->
+    <color name="background">#ff80ab</color>
+    <color name="mainLayout">#ff4081</color>
+    <color name="altLayout">#c51162</color>
+    <color name="mainButton">#FF4081</color>
+    <color name="altButton">#FFFFFF</color>
+    <color name="mainText">#FFFFFF</color>
+    <color name="altText">#9e9e9e</color>
 </resources>
