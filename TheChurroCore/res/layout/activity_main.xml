@@ -4,11 +4,11 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     tools:context="${relativePackage}.${activityClass}" >
-    
+
     <com.nvanbenschoten.motion.ParallaxImageView
         android:id="@+id/background"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:src="@drawable/background" />
@@ -19,54 +19,70 @@
 	    android:layout_height="fill_parent"
 	    android:layout_alignParentBottom="true"
 	    android:layout_alignParentLeft="true"
-	    android:layout_alignParentRight="true">
-	    <TextView
-	        android:layout_width="fill_parent"
-	        android:layout_height="wrap_content"
-	        android:layout_weight="40"/>
-	    
-	    <LinearLayout
-		    android:orientation="vertical"
+	    android:layout_alignParentRight="true"
+	    android:weightSum="100">
+		<TextView 
 		    android:layout_width="fill_parent"
-		    android:layout_height="wrap_content"
-		    android:layout_alignParentBottom="true"
-		    android:layout_alignParentLeft="true"
-		    android:layout_alignParentRight="true"
-		    android:layout_weight="40">
-	    
-		</LinearLayout>
-	    
-	    
+		    android:layout_height="0dp"
+		    android:layout_weight="40"
+		    />
     	<LinearLayout
+    	    android:id="@+id/start"
 		    android:orientation="vertical"
 		    android:layout_width="match_parent"
-		    android:layout_height="wrap_content"
+		    android:layout_height="0dp"
 		    android:background="@color/mainLayout"
 		    android:layout_weight="60">
-
-		    <TextView
-		        android:layout_width="fill_parent"
-		        android:layout_height="wrap_content"
-		        android:layout_weight="70"/>
-  
-		    <LinearLayout
-			    android:id="@+id/start"
-			    android:orientation="horizontal"
+		    <!-- android:visibility="invisible" -->
+    	    
+    	    <RelativeLayout 
+    	        android:layout_width="match_parent"
+			    android:layout_height="match_parent"
+			    android:layout_gravity="center"
+			    android:gravity="center">
+    	    
+	    	    <LinearLayout
+			    android:orientation="vertical"
 			    android:layout_width="match_parent"
 			    android:layout_height="wrap_content"
-			    android:background="@color/altLayout"
-			    android:visibility="invisible"
-			    android:layout_weight="20">
-			    <!-- android:visibility="gone"  -->
-		    
-		    	 <TextView
-		    	    android:text="continuar..."
-		    	    style="@style/bigText"
-		    	    android:textColor="@color/altButton"
-		    	    android:gravity="center"
-			        android:layout_width="fill_parent"
-			        android:layout_height="fill_parent"/>
-		    </LinearLayout> 
+			    android:layout_gravity="center"
+			    android:gravity="center">
+	
+	    	        <Button
+	    	            android:id="@+id/button1"
+	    	            style="@style/mainButton"
+	    	            android:layout_width="wrap_content"
+	    	            android:layout_height="wrap_content"
+	    	            android:text="Button" 
+	    	            android:layout_margin="15dp"/>
+	    	        
+	    	        <Button
+	    	            android:id="@+id/button2"
+	    	            style="@style/mainButton"
+	    	            android:layout_width="wrap_content"
+	    	            android:layout_height="wrap_content"
+	    	            android:text="Button" 
+	    	            android:layout_margin="15dp" />
+	    	        
+	    	        <Button
+	    	            android:id="@+id/button3"
+	    	            style="@style/mainButton"
+	    	            android:layout_width="wrap_content"
+	    	            android:layout_height="wrap_content"
+	    	            android:text="Button" 
+	    	            android:layout_margin="15dp" />
+	    	        
+	    	        <Button
+	    	            android:id="@+id/button4"
+	    	            style="@style/mainButton"
+	    	            android:layout_width="wrap_content"
+	    	            android:layout_height="wrap_content"
+	    	            android:text="Button" 
+	    	            android:layout_margin="15dp" />
+	    	        
+	    	    </LinearLayout>
+    	    </RelativeLayout>
+    	    
 		</LinearLayout>			   
 	</LinearLayout>
 </RelativeLayout>

@@ -1,4 +1,17 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <!-- COLORES -->
+    <color name="background">#ff80ab</color>
+    <color name="mainLayout">#FAFAFA</color>
+    <color name="altLayout">#FF4081</color>
+    <color name="mainButton">#FF4081</color>
+    <color name="altButton">#FFFFFF</color>
+    <color name="mainText">#FFFFFF</color>
+    <color name="altText">#9e9e9e</color>
+    
+    <!-- TAMAÑOS -->
+    <dimen name="mainButtonSize">24dp</dimen>
+    
     <style name="AppBaseTheme" parent="android:Theme.Light">
     </style>
     <style name="AppTheme" parent="AppBaseTheme">
@@ -14,16 +27,13 @@
     </style>
     
     
-    <style name="bigText" parent="@android:style/TextAppearance">
+    <style name="bigText">
         <item name="android:textSize">30sp</item>
     </style>
-
-    <!-- COLORES -->
-    <color name="background">#ff80ab</color>
-    <color name="mainLayout">#ff4081</color>
-    <color name="altLayout">#c51162</color>
-    <color name="mainButton">#FF4081</color>
-    <color name="altButton">#FFFFFF</color>
-    <color name="mainText">#FFFFFF</color>
-    <color name="altText">#9e9e9e</color>
+    
+    <style name="mainButton" parent="@android:style/TextAppearance">
+        <item name="android:textSize">28dp</item>
+        <item name="android:background">@color/mainLayout</item>
+        <item name="android:textColor">@color/mainButton</item>
+    </style>
 </resources>
