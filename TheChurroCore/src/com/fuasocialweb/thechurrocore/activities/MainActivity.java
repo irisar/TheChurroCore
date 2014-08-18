@@ -28,7 +28,7 @@ import android.widget.LinearLayout;
  */
 public class MainActivity extends Activity {
 
-	private Thread thread;
+	private Thread mThread;
 	private LinearLayout mOptionsMenu;
 	private ParallaxImageView mBackground;
 	private Button mButton1;
@@ -43,9 +43,10 @@ public class MainActivity extends Activity {
 
 		createResources(); //Creamos los recursos necesarios
 		createDatabase(); //Creamos la base de datos (si no existe)
+		animateMenu(); //Ejecutamos la animación del menú
 	    lastLevel(); //Obtiene el último nivel visitado
 		createEvents(); //Crea los eventos
-	    animateMenu(); //Ejecutamos la animación del menú
+	    
 	    
 	}
 	
@@ -107,7 +108,7 @@ public class MainActivity extends Activity {
      * Crea el hilo para la animación del menú principal
      */
     private void animateMenu() {
-	    thread = new Thread(){
+	    mThread = new Thread(){
 	        @Override
 	        public void run(){
 	            try {
@@ -132,7 +133,7 @@ public class MainActivity extends Activity {
 	            }            
 	        }
 	    };
-	    thread.start();
+	    mThread.start();
     }
     
     
@@ -187,5 +188,6 @@ public class MainActivity extends Activity {
 		super.onStop();
 		EasyTracker.getInstance(this).activityStop(this);
 	}	
+
     
 }

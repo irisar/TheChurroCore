@@ -5,9 +5,19 @@
     <string name="main_button2">nueva partida</string>
     <string name="main_button3">logros</string>
     <string name="main_button4">información</string>
-    <string name="question">¿asdf asdf asdf asdf asdf qwer asdf asdfa asdf asdf asd fasdfwer qew r fdasf?</string>
+    <string name="level">Nivel</string>
+    <string name="question_number">Pregunta</string>
+    <string name="lifes1">• • ❤</string>
+    <string name="lifes2">• ❤ ❤</string>
+    <string name="lifes3">❤ ❤ ❤</string>
+    <string name="question">¿asdf asdf asdf asdf asdf qwer asdf asdfa asdf asdf asd?</string>
     <string name="option_button1">Opción 1</string>
     <string name="option_button2">Opción 2</string>
     <string name="option_button3">Opción 3</string>
     <string name="option_button4">Opción 4</string>
+    <string name="correct">¡correcto!</string>
+    <string name="incorrect">¡incorrecto!</string>
+    <string name="time1">Te quedan</string>
+    <string name="time2">seg</string>
+    <string name="time_over">¡Tiempo agotado!</string>
 </resources>

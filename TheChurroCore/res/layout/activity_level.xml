@@ -1,0 +1,160 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <LinearLayout
+	    android:orientation="vertical"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:layout_alignParentBottom="true"
+	    android:layout_alignParentLeft="true"
+	    android:layout_alignParentRight="true"
+	    android:weightSum="100">
+	    
+        <LinearLayout
+		    android:orientation="vertical"
+		    android:layout_width="match_parent"
+		    android:layout_height="0dp"
+		    android:background="@color/mainLayout"
+		    android:layout_weight="10">
+		    <LinearLayout
+			    android:orientation="horizontal"
+			    android:layout_width="match_parent"
+			    android:layout_height="40dp"
+			    android:background="@color/mainLayout"
+			    android:layout_weight="20">
+		        <TextView
+				    android:id="@+id/level"
+				    style="@style/question"
+				    android:paddingLeft="10dp"
+				    android:layout_gravity="left"
+				    android:gravity="center_vertical"
+				    android:layout_width="wrap_content"
+				    android:layout_height="match_parent"
+				    android:text="@string/level" />
+		    	<TextView
+				    android:id="@+id/time"
+				    style="@style/question"
+				    android:paddingLeft="10dp"
+				    android:layout_gravity="center"
+				    android:gravity="center"
+				    android:layout_width="wrap_content"
+				    android:layout_height="match_parent"
+				    android:text="@string/time1" />
+		    	<TextView
+				    android:id="@+id/life"
+				    style="@style/question"
+				    android:paddingRight="10dp"
+				    android:layout_gravity="right"
+				    android:gravity="right|center_vertical"
+				    android:layout_width="fill_parent"
+				    android:layout_height="match_parent"
+				    android:text="@string/lifes3" />
+			</LinearLayout>
+		 </LinearLayout>
+
+		<ImageView 
+		    android:id="@+id/image"
+		    android:layout_width="fill_parent"
+		    android:layout_height="0dp"
+		    android:layout_weight="30"
+		    android:scaleType="centerInside"  />
+		
+		<LinearLayout
+		    android:orientation="vertical"
+		    android:layout_width="match_parent"
+		    android:layout_height="0dp"
+		    android:background="@color/mainLayout"
+		    android:layout_weight="10">
+			<TextView
+			    android:id="@+id/question"
+			    style="@style/question"
+			    android:layout_margin="5dp"
+			    android:layout_weight="80"
+			    android:layout_gravity="center_vertical|right"
+			    android:gravity="center_vertical"
+			    android:layout_width="match_parent"
+			    android:layout_height="match_parent"
+			    android:text="@string/question" />
+		 </LinearLayout>
+		
+    	<LinearLayout
+		    android:orientation="vertical"
+		    android:layout_width="match_parent"
+		    android:layout_height="0dp"
+		    android:background="@color/mainLayout"
+		    android:layout_weight="50">
+    	    
+    	    <RelativeLayout 
+    	        android:layout_width="match_parent"
+			    android:layout_height="match_parent"
+			    android:layout_gravity="center|top"
+			    android:gravity="center|top">
+	    	    <LinearLayout
+				    android:orientation="vertical"
+				    android:layout_width="match_parent"
+				    android:layout_height="wrap_content"
+				    android:layout_gravity="center"
+				    android:gravity="center">
+	    	        <Button
+	    	            android:id="@+id/option1"
+	    	            style="@style/mainButton"
+	    	            android:layout_width="wrap_content"
+	    	            android:layout_height="wrap_content"
+	    	            android:text="@string/option_button1"
+	    	            android:layout_margin="10dp"/>
+	    	        <Button
+	    	            android:id="@+id/option2"
+	    	            style="@style/mainButton"
+	    	            android:layout_width="wrap_content"
+	    	            android:layout_height="wrap_content"
+	    	            android:text="@string/option_button2" 
+	    	            android:layout_margin="10dp" />
+	    	        <Button
+	    	            android:id="@+id/option3"
+	    	            style="@style/mainButton"
+	    	            android:layout_width="wrap_content"
+	    	            android:layout_height="wrap_content"
+	    	            android:text="@string/option_button3" 
+	    	            android:layout_margin="10dp" />
+	    	        <Button
+	    	            android:id="@+id/option4"
+	    	            style="@style/mainButton"
+	    	            android:layout_width="wrap_content"
+	    	            android:layout_height="wrap_content"
+	    	            android:text="@string/option_button4" 
+	    	            android:layout_margin="10dp" />  
+	    	    </LinearLayout>
+    	    </RelativeLayout>
+		</LinearLayout>			   
+	</LinearLayout>
+	
+    <RelativeLayout 
+		android:id="@+id/result"
+		android:layout_alignParentTop="true"
+		android:layout_alignParentLeft="true"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:background="@color/background"
+		android:visibility="invisible">
+        <LinearLayout
+			android:orientation="vertical"
+			android:layout_width="fill_parent"
+			android:layout_height="fill_parent"
+			android:layout_gravity="center"
+			android:gravity="center">
+           	<TextView
+			    android:id="@+id/resultText"
+			    style="@style/result"
+			    android:paddingRight="10dp"
+			    android:layout_gravity="right"
+			    android:gravity="center|center_vertical"
+			    android:layout_width="fill_parent"
+			    android:layout_height="match_parent"
+			    android:text="@string/correct" />
+		</LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

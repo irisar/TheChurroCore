@@ -32,4 +32,9 @@
         <item name="android:background">@color/mainLayout</item>
         <item name="android:textColor">@color/mainButton</item>
     </style>
+    <style name="result" parent="@android:style/TextAppearance">
+        <item name="android:textSize">38dp</item>
+        <item name="android:background">@color/mainLayout</item>
+        <item name="android:textColor">@color/mainButton</item>
+    </style>
 </resources>
