@@ -1,0 +1,52 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mainLayout"
+    tools:context="${relativePackage}.${activityClass}" >
+
+        <LinearLayout
+			android:orientation="vertical"
+			android:layout_width="fill_parent"
+			android:layout_height="fill_parent"
+			android:layout_gravity="center"
+			android:gravity="center">
+			
+            <ImageView 
+			    android:id="@+id/image"
+			    android:layout_width="fill_parent"
+			    android:layout_height="0dp"
+			    android:layout_weight="30"
+			    android:scaleType="centerInside"  />
+            
+            
+           	<TextView
+			    android:id="@+id/score"
+			    style="@style/bigText"
+			    android:layout_gravity="right"
+			    android:gravity="center|center_vertical"
+			    android:layout_width="fill_parent"
+			    android:layout_height="wrap_content"
+			    android:layout_weight="30"
+			    android:text="@string/score" />
+           	
+           	 <Button
+   	            android:id="@+id/go_to_menu"
+   	            style="@style/bigButton"
+   	            android:layout_width="wrap_content"
+   	            android:layout_height="wrap_content"
+   	            android:text="@string/main_menu"
+   	            android:layout_weight="15"
+   	            android:layout_margin="10dp"/>
+           	 
+           	 <Button
+   	            android:id="@+id/go_to_scores"
+   	            style="@style/bigButton"
+   	            android:layout_width="wrap_content"
+   	            android:layout_height="wrap_content"
+   	            android:text="@string/show_scores"
+   	            android:layout_weight="15"
+   	            android:layout_margin="10dp"/>
+           	
+		</LinearLayout>
+</RelativeLayout>

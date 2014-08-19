@@ -3,7 +3,7 @@
     <string name="app_name">TheChurroCore</string>
     <string name="main_button1">continuar</string>
     <string name="main_button2">nueva partida</string>
-    <string name="main_button3">logros</string>
+    <string name="main_button3">puntuaciones</string>
     <string name="main_button4">información</string>
     <string name="level">Nivel</string>
     <string name="question_number">Pregunta</string>
@@ -20,4 +20,8 @@
     <string name="time1">Te quedan</string>
     <string name="time2">seg</string>
     <string name="time_over">¡Tiempo agotado!</string>
+    <string name="score">has obtenido</string>
+    <string name="points">puntos</string>
+    <string name="main_menu">regresar al menú</string>
+    <string name="show_scores">ver puntuaciones</string>
 </resources>

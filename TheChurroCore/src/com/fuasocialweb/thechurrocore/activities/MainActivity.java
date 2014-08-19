@@ -1,8 +1,5 @@
 package com.fuasocialweb.thechurrocore.activities;
 
-
-import java.util.List;
-
 import com.fuasocialweb.thechurrocore.R;
 import com.fuasocialweb.thechurrocore.db.DataBaseHelper;
 import com.fuasocialweb.thechurrocore.db.beans.Status;
@@ -46,8 +43,6 @@ public class MainActivity extends Activity {
 		animateMenu(); //Ejecutamos la animación del menú
 	    lastLevel(); //Obtiene el último nivel visitado
 		createEvents(); //Crea los eventos
-	    
-	    
 	}
 	
 	
@@ -80,14 +75,18 @@ public class MainActivity extends Activity {
 				Intent intent = new Intent(MainActivity.this, LevelActivity.class);
 	            intent.putExtra("level", mLastLevel);
 	            startActivity(intent);
+	            finish();
 			}
 		});
 	    
 	    mButton2.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
+				saveStatus(1,0);
+				mButton1.setVisibility(View.GONE);
 				Intent intent = new Intent(MainActivity.this, LevelActivity.class);
 	            intent.putExtra("level", 1);
 	            startActivity(intent);
+	            finish();
 			}
 		});
 	    
@@ -114,14 +113,21 @@ public class MainActivity extends Activity {
 	            try {
 	                synchronized(this){
 	                    try {
-	                    	wait(3000);
-	                    	mOptionsMenu.getHandler().post(new Runnable() {
-		            		    public void run() {
-		            		    	Animation slideUp = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide_up);
-		            		    	mOptionsMenu.startAnimation(slideUp);
-		            		    	mOptionsMenu.setVisibility(View.VISIBLE);
-		            		    }
-		            		});
+	                    	Bundle extras = getIntent().getExtras();
+	                    	if (extras != null && null != extras.get("back")) {
+	                    		mOptionsMenu.setVisibility(View.VISIBLE);
+	                    	} else {
+	                    		wait(3000);
+		                    	mOptionsMenu.getHandler().post(new Runnable() {
+			            		    public void run() {
+			            		    	Animation slideUp = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide_up);
+			            		    	mOptionsMenu.startAnimation(slideUp);
+			            		    	mOptionsMenu.setVisibility(View.VISIBLE);
+			            		    }
+			            		});
+	                    	}
+	                    	
+	                    	
 	                    } catch (NullPointerException e) {
 	                    	//Error al girar dispositivo mientras carga
 	                    }
@@ -156,12 +162,10 @@ public class MainActivity extends Activity {
     private void lastLevel() {
     	//Comprobamos si se puede leer el status
     	StatusController statusController = new StatusController(getApplicationContext());
-    	List<Status> statuses = statusController.getAllStatus();
-    	Status status = null;
+    	Status status = statusController.getStatus(1);
     	int level = 1;
     	
-    	if (null != statuses && statuses.size() > 0) {
-    		status = statuses.get(0);
+    	if (null != status) {
     		//Si el nivel es mayor que el primero mostramos la opción de continuar
     		if (status.getLevel() > 1) {
     			mButton1.setVisibility(View.VISIBLE);
@@ -189,5 +193,11 @@ public class MainActivity extends Activity {
 		EasyTracker.getInstance(this).activityStop(this);
 	}	
 
-    
+	private void saveStatus(int level, int question) {
+		StatusController statusController = new StatusController(getApplicationContext());
+		Status status = statusController.getStatus(1);
+		status.setLevel(level);
+		status.setScore(0);
+		statusController.update(status);
+	}
 }

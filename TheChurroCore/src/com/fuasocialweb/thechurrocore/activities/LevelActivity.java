@@ -45,6 +45,7 @@ public class LevelActivity extends Activity {
 	private Thread mThread;
 	private int mNextLevel = 0;
 	private CountDownTimer mTimer;
+	private int mPuntuacion = 10000;
 	
 	
 	@Override
@@ -196,12 +197,23 @@ public class LevelActivity extends Activity {
 			            		    public void run() {
 			            		    	int lifes = repeatLevel();
 			            		    	if (lifes > 0) {
+			            		    		if (lifes == 1) {
+			            		    			mPuntuacion = 4000;
+			            		    		} else if (lifes == 2) {
+			            		    			mPuntuacion = 7000;
+			            		    		}
 			            		    		mTextLifes.setText(Status.getLifes(getApplicationContext(), lifes));
 			            		    		Animation zoomOut = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.zoom_out);
 				            		    	mResult.startAnimation(zoomOut);
 				            		    	mResult.setVisibility(View.INVISIBLE);
 				            		    	countDown();
 			            		    	} else {
+			            		    		//Guardamos el estado del usuario
+			            		    		mPuntuacion = 0;
+			            		    		saveStatus(mLevel, 0);
+			            		    		
+			            		    		Intent intent = new Intent(LevelActivity.this, GameOverActivity.class);
+			            		            startActivity(intent);
 			            		    		finish();
 			            		    	}
 			            		    }
@@ -221,7 +233,8 @@ public class LevelActivity extends Activity {
 	}
     
 	private void nextLevel() {
-		//TODO: Hay que comprobar si pasar a la siguiente pregunta o ya no hay más preguntas
+		
+		
 		QuestionController questionController = new QuestionController(getApplicationContext());
 		
 		int nextLevel = mLevel;
@@ -230,16 +243,23 @@ public class LevelActivity extends Activity {
 		int nextId = Integer.parseInt(mLevel + "" +(mQuestionNumber + 1));
 		if (questionController.existsQuestionId(nextId)) { //Si existe hay siguiente pregunta del mismo nivel
 			nextQuestionNumber++;
+			saveStatus(nextLevel, nextQuestionNumber);
 		} else { //No hay siguiente pregunta del mismo nivel
 			nextId = Integer.parseInt((mLevel + 1) + "0");
 			if (questionController.existsQuestionId(nextId)) { //Si existe hay siguiente nivel
 				nextLevel++;
 				nextQuestionNumber = 0;
+				saveStatus(nextLevel, nextQuestionNumber);
 			} else { //Si no existe no hay más niveles
+				saveStatus(nextLevel, nextQuestionNumber);
+
+				//TODO: mostrar mensaje de que se ha terminado
 		        finish();
 			}
 			
 		}
+		
+		
 		Intent intent = new Intent(LevelActivity.this, LevelActivity.class);
         intent.putExtra("level", nextLevel);
         intent.putExtra("question", nextQuestionNumber);
@@ -280,6 +300,7 @@ public class LevelActivity extends Activity {
 		mTimer = new CountDownTimer(11000, 1000) {
 			public void onTick(long millisUntilFinished) {
 				mTextTime.setText(getText(R.string.time1) + " " + (millisUntilFinished / 1000) + " " + getText(R.string.time2));
+				mPuntuacion = mPuntuacion - 300;
 			}
 		 
 			@Override
@@ -291,5 +312,22 @@ public class LevelActivity extends Activity {
 	    		habilitarBotones(true);
 			}
 		}.start();
+	}
+	
+	private void saveStatus(int level, int question) {
+		StatusController statusController = new StatusController(getApplicationContext());
+		Status status = statusController.getStatus(1);
+		int puntuacion = status.getScore() + mPuntuacion;
+		status.setLevel(level);
+		status.setScore(puntuacion);
+		statusController.update(status);
+	}
+	
+	@Override
+	public void onBackPressed() {
+		Intent intent = new Intent(LevelActivity.this, MainActivity.class);
+        intent.putExtra("back", true);
+        startActivity(intent);
+		finish();
 	}
 }

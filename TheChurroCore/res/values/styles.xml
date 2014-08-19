@@ -18,7 +18,14 @@
     </style>
     
     <style name="bigText">
-        <item name="android:textSize">30sp</item>
+        <item name="android:textSize">38sp</item>
+        <item name="android:textColor">@color/mainText</item>
+    </style>
+    
+    <style name="bigButton">
+        <item name="android:textSize">28sp</item>
+        <item name="android:textColor">@color/mainButton</item>
+        <item name="android:background">@color/mainLayout</item>
     </style>
     
     <style name="mainButton" parent="@android:style/TextAppearance">

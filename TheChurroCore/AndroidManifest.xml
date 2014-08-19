@@ -29,6 +29,10 @@
             android:name=".activities.LevelActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" />
+         <activity
+            android:name=".activities.GameOverActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
