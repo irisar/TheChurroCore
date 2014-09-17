@@ -5,8 +5,12 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
+
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.LinkedList;
+import java.util.Random;
 
 import com.fuasocialweb.thechurrocore.db.DataBaseHelper;
 import com.fuasocialweb.thechurrocore.db.beans.Question;
@@ -138,6 +142,43 @@ public class QuestionController extends DataBaseHelper{
 
 				questions.add(question);
 			} while (cursor.moveToNext());
+		}
+		db.close(); 
+		return questions;
+	}
+	
+	
+	
+	public ArrayList<Question> getQuestionsFromLevel(int level) {
+		ArrayList<Question> questions = new ArrayList<Question>();
+
+		String query = "SELECT  * FROM " + TABLE_NAME + " where level = " + level;
+
+		SQLiteDatabase db = this.getWritableDatabase();
+		Cursor cursor = db.rawQuery(query, null);
+
+		Question question = null;
+		if (cursor.moveToFirst()) {
+			do {
+				question = new Question();
+				question.setId(Integer.parseInt(cursor.getString(0)));
+				question.setQuestion(cursor.getString(1));
+				question.setAnswer1(cursor.getString(2));
+				question.setAnswer2(cursor.getString(3));
+				question.setAnswer3(cursor.getString(4));
+				question.setAnswer4(cursor.getString(5));
+				question.setAnswer5(cursor.getString(6));
+				question.setAnswer6(cursor.getString(7));
+				question.setCorrectAnswer(cursor.getInt(8));
+				question.setMultimedia(cursor.getString(9));
+				question.setLevel(cursor.getInt(10));
+
+				questions.add(question);
+			} while (cursor.moveToNext());
+			
+			//Randomize
+			long seed = System.nanoTime();
+			Collections.shuffle(questions, new Random(seed));
 		}
 		db.close(); 
 		return questions;

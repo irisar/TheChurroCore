@@ -92,13 +92,17 @@ public class MainActivity extends Activity {
 	    
 	    mButton3.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				
+				Intent intent = new Intent(MainActivity.this, ScoresActivity.class);
+		        startActivity(intent);
+				finish();
 			}
 		});
 	    
 	    mButton4.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				
+				Intent intent = new Intent(MainActivity.this, InfoActivity.class);
+		        startActivity(intent);
+				finish();
 			}
 		});
     }

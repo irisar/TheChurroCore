@@ -86,7 +86,7 @@
 		    android:layout_width="match_parent"
 		    android:layout_height="0dp"
 		    android:background="@color/mainLayout"
-		    android:layout_weight="50">
+		    android:layout_weight="40">
     	    
     	    <RelativeLayout 
     	        android:layout_width="match_parent"
@@ -101,35 +101,47 @@
 				    android:gravity="center">
 	    	        <Button
 	    	            android:id="@+id/option1"
-	    	            style="@style/mainButton"
+	    	            style="@style/answer"
 	    	            android:layout_width="wrap_content"
 	    	            android:layout_height="wrap_content"
 	    	            android:text="@string/option_button1"
 	    	            android:layout_margin="10dp"/>
 	    	        <Button
 	    	            android:id="@+id/option2"
-	    	            style="@style/mainButton"
+	    	            style="@style/answer"
 	    	            android:layout_width="wrap_content"
 	    	            android:layout_height="wrap_content"
 	    	            android:text="@string/option_button2" 
 	    	            android:layout_margin="10dp" />
 	    	        <Button
 	    	            android:id="@+id/option3"
-	    	            style="@style/mainButton"
+	    	            style="@style/answer"
 	    	            android:layout_width="wrap_content"
 	    	            android:layout_height="wrap_content"
 	    	            android:text="@string/option_button3" 
 	    	            android:layout_margin="10dp" />
 	    	        <Button
 	    	            android:id="@+id/option4"
-	    	            style="@style/mainButton"
+	    	            style="@style/answer"
 	    	            android:layout_width="wrap_content"
 	    	            android:layout_height="wrap_content"
 	    	            android:text="@string/option_button4" 
 	    	            android:layout_margin="10dp" />  
 	    	    </LinearLayout>
     	    </RelativeLayout>
-		</LinearLayout>			   
+		</LinearLayout>	
+		
+    	<LinearLayout
+    	    android:id="@+id/anuncio"
+		    android:orientation="vertical"
+		    android:layout_width="match_parent"
+		    android:layout_height="0dp"
+		    android:background="@color/mainLayout"
+		    android:gravity="bottom"
+		    android:layout_gravity="bottom"
+		    android:layout_weight="10">
+    	</LinearLayout>
+    			   
 	</LinearLayout>
 	
     <RelativeLayout 
@@ -138,7 +150,7 @@
 		android:layout_alignParentLeft="true"
 		android:layout_width="fill_parent"
 		android:layout_height="fill_parent"
-		android:background="@color/background"
+		android:background="@color/mainLayout"
 		android:visibility="invisible">
         <LinearLayout
 			android:orientation="vertical"
@@ -153,8 +165,17 @@
 			    android:layout_gravity="right"
 			    android:gravity="center|center_vertical"
 			    android:layout_width="fill_parent"
-			    android:layout_height="match_parent"
+			    android:layout_height="wrap_content"
 			    android:text="@string/correct" />
+           	<TextView
+			    android:id="@+id/lifesResult"
+			    style="@style/result"
+			    android:paddingRight="10dp"
+			    android:layout_gravity="right"
+			    android:gravity="center|center_vertical"
+			    android:layout_width="fill_parent"
+			    android:layout_height="wrap_content"
+			    android:text="@string/lifes3" />
 		</LinearLayout>
     </RelativeLayout>
 </RelativeLayout>

@@ -1,6 +1,10 @@
 package com.fuasocialweb.thechurrocore.db.beans;
 
-public class Question {
+import java.io.Serializable;
+
+public class Question implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 	private int id;
     private String question;
     private String answer1;

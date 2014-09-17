@@ -5,6 +5,7 @@
     <color name="mainLayout">#FF4081</color>
     <color name="altLayout">#FAFAFA</color>
     <color name="mainButton">#FFFFFF</color>
+    <color name="pressedButton">#9e9e9e</color>
     <color name="altButton">#FF4081</color>
     <color name="mainText">#FFFFFF</color>
     <color name="altText">#9e9e9e</color>
@@ -24,14 +25,20 @@
     
     <style name="bigButton">
         <item name="android:textSize">28sp</item>
-        <item name="android:textColor">@color/mainButton</item>
         <item name="android:background">@color/mainLayout</item>
+        <item name="android:textColor">@drawable/button_click</item>
     </style>
     
     <style name="mainButton" parent="@android:style/TextAppearance">
         <item name="android:textSize">28dp</item>
         <item name="android:background">@color/mainLayout</item>
-        <item name="android:textColor">@color/mainButton</item>
+        <item name="android:textColor">@drawable/button_click</item>
+    </style>
+    
+    <style name="answer" parent="@android:style/TextAppearance">
+        <item name="android:textSize">23dp</item>
+        <item name="android:background">@color/mainLayout</item>
+        <item name="android:textColor">@drawable/button_click</item>
     </style>
     
     <style name="question" parent="@android:style/TextAppearance">
@@ -44,4 +51,14 @@
         <item name="android:background">@color/mainLayout</item>
         <item name="android:textColor">@color/mainButton</item>
     </style>
+    
+    <style name="scoresHeader" parent="@android:style/TextAppearance">
+        <item name="android:textSize">20dp</item>
+        <item name="android:textColor">@color/altText</item>
+    </style>
+    <style name="scores" parent="@android:style/TextAppearance">
+        <item name="android:textSize">18dp</item>
+        <item name="android:textColor">@color/mainText</item>
+    </style>
+    
 </resources>

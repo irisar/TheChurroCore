@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">TheChurroCore</string>
+    <string name="add_id">ca-app-pub-4967574371778202/7197230309</string>
     <string name="main_button1">continuar</string>
     <string name="main_button2">nueva partida</string>
     <string name="main_button3">puntuaciones</string>
     <string name="main_button4">información</string>
-    <string name="level">Nivel</string>
-    <string name="question_number">Pregunta</string>
+    <string name="level">nivel</string>
+    <string name="question_number">pregunta</string>
     <string name="lifes1">• • ❤</string>
     <string name="lifes2">• ❤ ❤</string>
     <string name="lifes3">❤ ❤ ❤</string>
@@ -17,11 +18,17 @@
     <string name="option_button4">Opción 4</string>
     <string name="correct">¡correcto!</string>
     <string name="incorrect">¡incorrecto!</string>
-    <string name="time1">Te quedan</string>
+    <string name="time1">te quedan</string>
     <string name="time2">seg</string>
-    <string name="time_over">¡Tiempo agotado!</string>
+    <string name="time_over">¡tiempo agotado!</string>
     <string name="score">has obtenido</string>
+    <string name="champion">¡has resuelto todas las preguntas!</string>
+    <string name="maspreguntas">próximamente habrá más preguntas. ¡estate atento!</string>
     <string name="points">puntos</string>
     <string name="main_menu">regresar al menú</string>
     <string name="show_scores">ver puntuaciones</string>
+    <string name="scores">puntuación</string>
+    <string name="date">fecha</string>
+    <string name="posicion">Nº</string>
+    <string name="informacion">Texto de prueba <![CDATA[<a href="http://www.google.es">Google</a>]]></string>
 </resources>
