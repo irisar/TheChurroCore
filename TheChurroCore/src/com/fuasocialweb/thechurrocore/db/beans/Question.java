@@ -86,6 +86,33 @@ public class Question implements Serializable {
 	public int getCorrectAnswer() {
 		return correctAnswer;
 	}
+	
+	public String getCorrectAnswerString() {
+		String answer = "";
+		switch (correctAnswer) {
+		case 1:
+			answer = answer1;
+			break;
+		case 2:
+			answer = answer2;
+			break;
+		case 3:
+			answer = answer3;
+			break;
+		case 4:
+			answer = answer4;
+			break;
+		case 5:
+			answer = answer5;
+			break;
+		case 6:
+			answer = answer6;
+			break;
+		default:
+			break;
+		}
+		return answer;
+	}
 
 	public void setCorrectAnswer(int correctAnswer) {
 		this.correctAnswer = correctAnswer;

@@ -84,6 +84,7 @@ public class MainActivity extends Activity {
 				saveStatus(1,0);
 				mButton1.setVisibility(View.GONE);
 				Intent intent = new Intent(MainActivity.this, LevelActivity.class);
+				//Intent intent = new Intent(MainActivity.this, HangmanActivity.class);
 	            intent.putExtra("level", 1);
 	            startActivity(intent);
 	            finish();
