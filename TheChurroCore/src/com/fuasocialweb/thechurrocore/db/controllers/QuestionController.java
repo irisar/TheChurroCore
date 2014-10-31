@@ -31,14 +31,14 @@ public class QuestionController extends DataBaseHelper{
 	private static final String ANSWER2 = "answer2";
 	private static final String ANSWER3 = "answer3";
 	private static final String ANSWER4 = "answer4";
-	private static final String ANSWER5 = "answer5";
-	private static final String ANSWER6 = "answer6";
 	private static final String CORRECT_ANSWER = "correct_answer";
 	private static final String MULTIMEDIA = "multimedia";
 	private static final String LEVEL = "level";
+	private static final String TYPE = "type";
+	private static final String ANSWERED = "answered";
 
 	
-	private static final String[] COLUMNS = {QUESTION_ID,QUESTION,ANSWER1,ANSWER2,ANSWER3,ANSWER4,ANSWER5,ANSWER6,CORRECT_ANSWER,MULTIMEDIA,LEVEL};
+	private static final String[] COLUMNS = {QUESTION_ID,QUESTION,ANSWER1,ANSWER2,ANSWER3,ANSWER4,CORRECT_ANSWER,MULTIMEDIA,LEVEL,TYPE,ANSWERED};
     
     
 	public void addQuestion(Question questions){
@@ -50,11 +50,11 @@ public class QuestionController extends DataBaseHelper{
 		values.put(ANSWER2, questions.getAnswer2());
 		values.put(ANSWER3, questions.getAnswer3());
 		values.put(ANSWER4, questions.getAnswer4());
-		values.put(ANSWER5, questions.getAnswer5());
-		values.put(ANSWER6, questions.getAnswer6());
 		values.put(CORRECT_ANSWER, questions.getCorrectAnswer());
 		values.put(MULTIMEDIA, questions.getMultimedia());
 		values.put(LEVEL, questions.getLevel());
+		values.put(TYPE, questions.getType());
+		values.put(ANSWERED, questions.getAnswered());
 		
 		db.insert(TABLE_NAME, null, values); 
 		
@@ -76,11 +76,11 @@ public class QuestionController extends DataBaseHelper{
 			question.setAnswer2(cursor.getString(3));
 			question.setAnswer3(cursor.getString(4));
 			question.setAnswer4(cursor.getString(5));
-			question.setAnswer5(cursor.getString(6));
-			question.setAnswer6(cursor.getString(7));
-			question.setCorrectAnswer(cursor.getInt(8));
-			question.setMultimedia(cursor.getString(9));
-			question.setLevel(cursor.getInt(10));
+			question.setCorrectAnswer(cursor.getInt(6));
+			question.setMultimedia(cursor.getString(7));
+			question.setLevel(cursor.getInt(8));
+			question.setType(cursor.getInt(9));
+			question.setAnswered(cursor.getInt(10));
 		}
 		db.close(); 
 		return question;
@@ -105,11 +105,11 @@ public class QuestionController extends DataBaseHelper{
 			question.setAnswer2(cursor.getString(3));
 			question.setAnswer3(cursor.getString(4));
 			question.setAnswer4(cursor.getString(5));
-			question.setAnswer5(cursor.getString(6));
-			question.setAnswer6(cursor.getString(7));
-			question.setCorrectAnswer(cursor.getInt(8));
-			question.setMultimedia(cursor.getString(9));
-			question.setLevel(cursor.getInt(10));
+			question.setCorrectAnswer(cursor.getInt(6));
+			question.setMultimedia(cursor.getString(7));
+			question.setLevel(cursor.getInt(8));
+			question.setType(cursor.getInt(9));
+			question.setAnswered(cursor.getInt(10));
 		}
 		db.close(); 
 		return question;
@@ -134,11 +134,11 @@ public class QuestionController extends DataBaseHelper{
 				question.setAnswer2(cursor.getString(3));
 				question.setAnswer3(cursor.getString(4));
 				question.setAnswer4(cursor.getString(5));
-				question.setAnswer5(cursor.getString(6));
-				question.setAnswer6(cursor.getString(7));
-				question.setCorrectAnswer(cursor.getInt(8));
-				question.setMultimedia(cursor.getString(9));
-				question.setLevel(cursor.getInt(10));
+				question.setCorrectAnswer(cursor.getInt(6));
+				question.setMultimedia(cursor.getString(7));
+				question.setLevel(cursor.getInt(8));
+				question.setType(cursor.getInt(9));
+				question.setAnswered(cursor.getInt(10));
 
 				questions.add(question);
 			} while (cursor.moveToNext());
@@ -167,11 +167,46 @@ public class QuestionController extends DataBaseHelper{
 				question.setAnswer2(cursor.getString(3));
 				question.setAnswer3(cursor.getString(4));
 				question.setAnswer4(cursor.getString(5));
-				question.setAnswer5(cursor.getString(6));
-				question.setAnswer6(cursor.getString(7));
-				question.setCorrectAnswer(cursor.getInt(8));
-				question.setMultimedia(cursor.getString(9));
-				question.setLevel(cursor.getInt(10));
+				question.setCorrectAnswer(cursor.getInt(6));
+				question.setMultimedia(cursor.getString(7));
+				question.setLevel(cursor.getInt(8));
+				question.setType(cursor.getInt(9));
+				question.setAnswered(cursor.getInt(10));
+
+				questions.add(question);
+			} while (cursor.moveToNext());
+			
+			//Randomize
+			long seed = System.nanoTime();
+			Collections.shuffle(questions, new Random(seed));
+		}
+		db.close(); 
+		return questions;
+	}
+	
+	public ArrayList<Question> getUnansweredQuestionsFromLevel(int level) {
+		ArrayList<Question> questions = new ArrayList<Question>();
+
+		String query = "SELECT  * FROM " + TABLE_NAME + " where answered = 0 and level = " + level;
+
+		SQLiteDatabase db = this.getWritableDatabase();
+		Cursor cursor = db.rawQuery(query, null);
+
+		Question question = null;
+		if (cursor.moveToFirst()) {
+			do {
+				question = new Question();
+				question.setId(Integer.parseInt(cursor.getString(0)));
+				question.setQuestion(cursor.getString(1));
+				question.setAnswer1(cursor.getString(2));
+				question.setAnswer2(cursor.getString(3));
+				question.setAnswer3(cursor.getString(4));
+				question.setAnswer4(cursor.getString(5));
+				question.setCorrectAnswer(cursor.getInt(6));
+				question.setMultimedia(cursor.getString(7));
+				question.setLevel(cursor.getInt(8));
+				question.setType(cursor.getInt(9));
+				question.setAnswered(cursor.getInt(10));
 
 				questions.add(question);
 			} while (cursor.moveToNext());
@@ -211,5 +246,23 @@ public class QuestionController extends DataBaseHelper{
 		}
 		db.close(); 
 		return exists;
+	}
+	
+	
+	public void setAsAnswered(int id) {		
+		SQLiteDatabase db = this.getWritableDatabase();
+		ContentValues values = new ContentValues();
+	    values.put(ANSWERED, 1);
+		int response = db.update(TABLE_NAME, values, QUESTION_ID + " = " + id, null);
+		Log.d("TheChurroCore", "Response: " + response);
+		db.close();
+	}
+	
+	public void reset() {		
+		SQLiteDatabase db = this.getWritableDatabase();
+		ContentValues values = new ContentValues();
+	    values.put(ANSWERED, 0);
+		db.update(TABLE_NAME, values, null, null);
+		db.close();
 	}
 }

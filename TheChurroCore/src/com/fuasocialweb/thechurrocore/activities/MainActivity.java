@@ -3,6 +3,7 @@ package com.fuasocialweb.thechurrocore.activities;
 import com.fuasocialweb.thechurrocore.R;
 import com.fuasocialweb.thechurrocore.db.DataBaseHelper;
 import com.fuasocialweb.thechurrocore.db.beans.Status;
+import com.fuasocialweb.thechurrocore.db.controllers.QuestionController;
 import com.fuasocialweb.thechurrocore.db.controllers.StatusController;
 import com.google.analytics.tracking.android.EasyTracker;
 import com.nvanbenschoten.motion.ParallaxImageView;
@@ -182,9 +183,7 @@ public class MainActivity extends Activity {
     	}
     	mLastLevel = level;
     }
-    
-    
-    
+
     @Override
 	protected void onStart() {
 		super.onStart();
@@ -203,6 +202,9 @@ public class MainActivity extends Activity {
 		Status status = statusController.getStatus(1);
 		status.setLevel(level);
 		status.setScore(0);
+		status.setLife(3);
 		statusController.update(status);
+		QuestionController questionController = new QuestionController(getApplicationContext());
+		questionController.reset();
 	}
 }

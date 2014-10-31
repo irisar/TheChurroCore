@@ -11,11 +11,11 @@ public class Question implements Serializable {
     private String answer2;
     private String answer3;
     private String answer4;
-    private String answer5;
-    private String answer6;
     private int correctAnswer;
     private int level;
     private String multimedia;
+    private int type;
+    private int answered;
  
     public Question(){}
 
@@ -67,22 +67,6 @@ public class Question implements Serializable {
 		this.answer4 = answer4;
 	}
 
-	public String getAnswer5() {
-		return answer5;
-	}
-
-	public void setAnswer5(String answer5) {
-		this.answer5 = answer5;
-	}
-
-	public String getAnswer6() {
-		return answer6;
-	}
-
-	public void setAnswer6(String answer6) {
-		this.answer6 = answer6;
-	}
-
 	public int getCorrectAnswer() {
 		return correctAnswer;
 	}
@@ -101,12 +85,6 @@ public class Question implements Serializable {
 			break;
 		case 4:
 			answer = answer4;
-			break;
-		case 5:
-			answer = answer5;
-			break;
-		case 6:
-			answer = answer6;
 			break;
 		default:
 			break;
@@ -134,4 +112,20 @@ public class Question implements Serializable {
 		this.multimedia = multimedia;
 	}
 
+	public int getType() {
+		return type;
+	}
+
+	public void setType(int type) {
+		this.type = type;
+	}
+
+	public int getAnswered() {
+		return answered;
+	}
+
+	public void setAnswered(int answered) {
+		this.answered = answered;
+	}
+	
 }
