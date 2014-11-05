@@ -1,4 +1,4 @@
-package com.fuasocialweb.thechurrocore.db.beans;
+package com.lovelydeveloper.churrocore.db.beans;
 
 public class Score {
 	private int id;

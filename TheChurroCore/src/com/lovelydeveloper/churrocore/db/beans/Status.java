@@ -1,8 +1,8 @@
-package com.fuasocialweb.thechurrocore.db.beans;
+package com.lovelydeveloper.churrocore.db.beans;
 
 import android.content.Context;
 
-import com.fuasocialweb.thechurrocore.R;
+import com.lovelydeveloper.churrocore.R;
 
 public class Status {
 	private int id;

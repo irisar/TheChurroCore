@@ -1,12 +1,12 @@
-package com.fuasocialweb.thechurrocore.activities;
+package com.lovelydeveloper.churrocore.activities;
 
-import com.fuasocialweb.thechurrocore.R;
-import com.fuasocialweb.thechurrocore.db.DataBaseHelper;
-import com.fuasocialweb.thechurrocore.db.beans.Status;
-import com.fuasocialweb.thechurrocore.db.controllers.QuestionController;
-import com.fuasocialweb.thechurrocore.db.controllers.StatusController;
+import com.lovelydeveloper.churrocore.R;
 import com.google.analytics.tracking.android.EasyTracker;
-import com.nvanbenschoten.motion.ParallaxImageView;
+import com.lovelydeveloper.churrocore.db.DataBaseHelper;
+import com.lovelydeveloper.churrocore.db.beans.Status;
+import com.lovelydeveloper.churrocore.db.controllers.QuestionController;
+import com.lovelydeveloper.churrocore.db.controllers.StatusController;
+import com.lovelydeveloper.churrocore.nvanbenschoten.motion.ParallaxImageView;
 
 import android.app.Activity;
 import android.content.Intent;

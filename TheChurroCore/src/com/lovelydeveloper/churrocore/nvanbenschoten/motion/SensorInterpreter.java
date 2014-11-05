@@ -1,4 +1,4 @@
-package com.nvanbenschoten.motion;
+package com.lovelydeveloper.churrocore.nvanbenschoten.motion;
 
 import android.content.Context;
 import android.hardware.SensorEvent;

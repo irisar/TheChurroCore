@@ -1,19 +1,19 @@
-package com.fuasocialweb.thechurrocore.activities;
+package com.lovelydeveloper.churrocore.activities;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import com.fuasocialweb.thechurrocore.R;
-import com.fuasocialweb.thechurrocore.db.beans.Score;
-import com.fuasocialweb.thechurrocore.db.beans.Status;
-import com.fuasocialweb.thechurrocore.db.controllers.ScoresController;
-import com.fuasocialweb.thechurrocore.db.controllers.StatusController;
-import com.fuasocialweb.thechurrocore.utils.AppUtils;
+import com.lovelydeveloper.churrocore.R;
 import com.google.analytics.tracking.android.EasyTracker;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
+import com.lovelydeveloper.churrocore.db.beans.Score;
+import com.lovelydeveloper.churrocore.db.beans.Status;
+import com.lovelydeveloper.churrocore.db.controllers.ScoresController;
+import com.lovelydeveloper.churrocore.db.controllers.StatusController;
+import com.lovelydeveloper.churrocore.utils.AppUtils;
 
 import android.app.Activity;
 import android.content.Intent;

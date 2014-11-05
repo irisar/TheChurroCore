@@ -1,4 +1,4 @@
-package com.fuasocialweb.thechurrocore.utils;
+package com.lovelydeveloper.churrocore.utils;
 
 import com.google.android.gms.ads.AdRequest;
 

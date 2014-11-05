@@ -1,4 +1,4 @@
-package com.fuasocialweb.thechurrocore.db.controllers;
+package com.lovelydeveloper.churrocore.db.controllers;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -9,8 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.LinkedList;
 
-import com.fuasocialweb.thechurrocore.db.DataBaseHelper;
-import com.fuasocialweb.thechurrocore.db.beans.Score;
+import com.lovelydeveloper.churrocore.db.DataBaseHelper;
+import com.lovelydeveloper.churrocore.db.beans.Score;
 
 public class ScoresController extends DataBaseHelper{
 	

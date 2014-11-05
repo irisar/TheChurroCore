@@ -1,4 +1,4 @@
-package com.fuasocialweb.thechurrocore.db.controllers;
+package com.lovelydeveloper.churrocore.db.controllers;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -12,8 +12,8 @@ import java.util.List;
 import java.util.LinkedList;
 import java.util.Random;
 
-import com.fuasocialweb.thechurrocore.db.DataBaseHelper;
-import com.fuasocialweb.thechurrocore.db.beans.Question;
+import com.lovelydeveloper.churrocore.db.DataBaseHelper;
+import com.lovelydeveloper.churrocore.db.beans.Question;
 
 public class QuestionController extends DataBaseHelper{
 	

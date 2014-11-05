@@ -1,6 +1,6 @@
-package com.fuasocialweb.thechurrocore.activities;
+package com.lovelydeveloper.churrocore.activities;
 
-import com.fuasocialweb.thechurrocore.R;
+import com.lovelydeveloper.churrocore.R;
 import com.google.analytics.tracking.android.EasyTracker;
 
 import android.app.Activity;

@@ -1,15 +1,10 @@
-package com.fuasocialweb.thechurrocore.activities;
+package com.lovelydeveloper.churrocore.activities;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 
-import com.fuasocialweb.thechurrocore.R;
-import com.fuasocialweb.thechurrocore.db.beans.Question;
-import com.fuasocialweb.thechurrocore.db.beans.Status;
-import com.fuasocialweb.thechurrocore.db.controllers.QuestionController;
-import com.fuasocialweb.thechurrocore.db.controllers.StatusController;
-import com.fuasocialweb.thechurrocore.utils.AppUtils;
+import com.lovelydeveloper.churrocore.R;
 import com.google.analytics.tracking.android.EasyTracker;
 
 import android.app.Activity;
@@ -31,6 +26,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.android.gms.ads.*;
+import com.lovelydeveloper.churrocore.db.beans.Question;
+import com.lovelydeveloper.churrocore.db.beans.Status;
+import com.lovelydeveloper.churrocore.db.controllers.QuestionController;
+import com.lovelydeveloper.churrocore.db.controllers.StatusController;
+import com.lovelydeveloper.churrocore.utils.AppUtils;
 
 /**
  * Actividad de nivel

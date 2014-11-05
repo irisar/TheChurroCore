@@ -1,11 +1,11 @@
-package com.fuasocialweb.thechurrocore.db;
+package com.lovelydeveloper.churrocore.db;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-import com.fuasocialweb.thechurrocore.db.beans.Status;
+import com.lovelydeveloper.churrocore.db.beans.Status;
 
 import android.content.ContentValues;
 import android.content.Context;

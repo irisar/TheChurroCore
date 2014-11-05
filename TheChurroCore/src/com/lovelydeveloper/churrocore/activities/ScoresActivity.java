@@ -1,12 +1,12 @@
-package com.fuasocialweb.thechurrocore.activities;
+package com.lovelydeveloper.churrocore.activities;
 
 
 import java.util.ArrayList;
 
-import com.fuasocialweb.thechurrocore.R;
-import com.fuasocialweb.thechurrocore.db.beans.Score;
-import com.fuasocialweb.thechurrocore.db.controllers.ScoresController;
+import com.lovelydeveloper.churrocore.R;
 import com.google.analytics.tracking.android.EasyTracker;
+import com.lovelydeveloper.churrocore.db.beans.Score;
+import com.lovelydeveloper.churrocore.db.controllers.ScoresController;
 
 import android.app.Activity;
 import android.content.Intent;

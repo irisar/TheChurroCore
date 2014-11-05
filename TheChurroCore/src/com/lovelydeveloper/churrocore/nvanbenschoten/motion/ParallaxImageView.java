@@ -1,6 +1,6 @@
-package com.nvanbenschoten.motion;
+package com.lovelydeveloper.churrocore.nvanbenschoten.motion;
 
-import com.fuasocialweb.thechurrocore.R;
+import com.lovelydeveloper.churrocore.R;
 
 import android.content.Context;
 import android.content.res.TypedArray;

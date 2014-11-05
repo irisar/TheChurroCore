@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.fuasocialweb.thechurrocore"
+    package="com.lovelydeveloper.churrocore"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -22,7 +22,7 @@
         <activity android:name="com.google.android.gms.ads.AdActivity"
              android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
         <activity
-            android:name=".activities.MainActivity"
+            android:name="com.lovelydeveloper.churrocore.activities.MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
             <intent-filter>
@@ -31,23 +31,23 @@
             </intent-filter>
         </activity>
          <activity
-            android:name=".activities.LevelActivity"
+            android:name="com.lovelydeveloper.churrocore.activities.LevelActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" />
          <activity
-            android:name=".activities.GameOverActivity"
+            android:name="com.lovelydeveloper.churrocore.activities.GameOverActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" />
          <activity
-            android:name=".activities.ScoresActivity"
+            android:name="com.lovelydeveloper.churrocore.activities.ScoresActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" />
          <activity
-            android:name=".activities.InfoActivity"
+            android:name="com.lovelydeveloper.churrocore.activities.InfoActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" />
          <activity
-            android:name=".activities.ChampionActivity"
+            android:name="com.lovelydeveloper.churrocore.activities.ChampionActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" />
     </application>
