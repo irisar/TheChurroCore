@@ -430,6 +430,7 @@ public class LevelActivity extends Activity {
 		
 		//Si no quedan letras por resolver pasamos al siguiente nivel
 		if (mNumLettersToResolve == 0) {
+			pause = true;
 			mTextResult.setText(R.string.correct);
 			mTextLifesResult.setText(Status.getLifes(getApplicationContext(), mNumLifes));
 			mNextLevel = 2;
@@ -459,15 +460,17 @@ public class LevelActivity extends Activity {
 		 
 			@Override
 			public void onFinish() {
-				mTextResult.setText(R.string.time_over);
-	    		mNextLevel = 1;
-	    		if (mType == 1) {
-	    			habilitarBotones(false);
-	    			animateResult();
-	    			habilitarBotones(true);
-	    		} else if (mType == 2) {
-	    			animateResult();
-	    		}
+				if (!pause) {
+					mTextResult.setText(R.string.time_over);
+		    		mNextLevel = 1;
+		    		if (mType == 1) {
+		    			habilitarBotones(false);
+		    			animateResult();
+		    			habilitarBotones(true);
+		    		} else if (mType == 2) {
+		    			animateResult();
+		    		}
+				}
 			}
 		}.start();
 	}
@@ -523,7 +526,6 @@ public class LevelActivity extends Activity {
 	                    } catch (NullPointerException e) {
 	                    	//Error al girar dispositivo mientras carga
 	                    }
-	                    pause = false;
 	                }
 	            }
 	            catch(Exception e){  
