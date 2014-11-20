@@ -1,4 +1,4 @@
 TheChurroCore
 =============
 
-Estructura para crear aplicaciones móviles
+Estructura para crear juegos de preguntas-respuestas para móviles android
