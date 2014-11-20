@@ -258,11 +258,11 @@ public class QuestionController extends DataBaseHelper{
 		db.close();
 	}
 	
-	public void reset() {		
+	public void reset(int level) {		
 		SQLiteDatabase db = this.getWritableDatabase();
 		ContentValues values = new ContentValues();
 	    values.put(ANSWERED, 0);
-		db.update(TABLE_NAME, values, null, null);
+		db.update(TABLE_NAME, values, "level = " + level, null);
 		db.close();
 	}
 }

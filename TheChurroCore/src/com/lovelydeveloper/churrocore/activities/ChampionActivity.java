@@ -75,8 +75,7 @@ public class ChampionActivity extends Activity {
     private void getScore() {
     	//Obtenemos y mostramos la puntiación final
     	StatusController statusController = new StatusController(getApplicationContext());
-		Status status = statusController.getStatus(1);
-		int score = status.getScore();
+		int score = statusController.getScore();
 		mScore.setText(getString(R.string.score) + "\n" + score + " " + getString(R.string.points));
 		
 		//Guardamos la puntuacion en la tabla de puntuaciones
@@ -87,10 +86,6 @@ public class ChampionActivity extends Activity {
 		scoreBean.setTime(dateFormat.format(date));
 		ScoresController scoresController = new ScoresController(getApplicationContext());
 		scoresController.addScore(scoreBean);
-		
-		//Reseteamos la puntuación
-		status.setScore(0); //Dejamos la puntuacion a 0
-		statusController.update(status);
     }
 
     @Override

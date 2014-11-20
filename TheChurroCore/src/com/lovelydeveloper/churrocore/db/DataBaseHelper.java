@@ -1,5 +1,6 @@
 package com.lovelydeveloper.churrocore.db;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -62,18 +63,18 @@ public class DataBaseHelper extends SQLiteOpenHelper{
 	 * @return true if it exists, false if it doesn't
 	 */
 	private boolean checkDataBase(){
-		SQLiteDatabase checkDB = null;
+		boolean checkDB = false;
 		try{
 			String myPath = myContext.getDatabasePath("ignored").getParentFile() + "/" + DB_NAME;
 			Log.d("TheChurroCore", "DATABASE PATH: " + myPath);
-			checkDB = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READONLY);
-		}catch(SQLiteException e){
+
+			File dbfile = new File(myPath);                
+			checkDB = dbfile.exists();
+		}catch(Exception e){
 			//database does't exist yet.
 		}
-		if(checkDB != null){
-			checkDB.close();
-		}
-		return checkDB != null ? true : false;
+		
+		return checkDB;
 	}
  
 	/**

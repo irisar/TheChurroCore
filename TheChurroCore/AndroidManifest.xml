@@ -34,6 +34,10 @@
             android:name="com.lovelydeveloper.churrocore.activities.LevelActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" />
+          <activity
+            android:name="com.lovelydeveloper.churrocore.activities.LevelSelectorActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
          <activity
             android:name="com.lovelydeveloper.churrocore.activities.GameOverActivity"
             android:label="@string/app_name"

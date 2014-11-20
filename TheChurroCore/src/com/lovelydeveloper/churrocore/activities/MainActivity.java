@@ -29,11 +29,9 @@ public class MainActivity extends Activity {
 	private Thread mThread;
 	private LinearLayout mOptionsMenu;
 	private ParallaxImageView mBackground;
-	private Button mButton1;
-	private Button mButton2;
-	private Button mButton3;
-	private Button mButton4;
-	private int mLastLevel;
+	private Button mPlay;
+	private Button mScores;
+	private Button mInfo;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +40,6 @@ public class MainActivity extends Activity {
 		createResources(); //Creamos los recursos necesarios
 		createDatabase(); //Creamos la base de datos (si no existe)
 		animateMenu(); //Ejecutamos la animación del menú
-	    lastLevel(); //Obtiene el último nivel visitado
 		createEvents(); //Crea los eventos
 	}
 	
@@ -62,37 +59,23 @@ public class MainActivity extends Activity {
     
     private void createResources() {
     	setContentView(R.layout.activity_main);
-    	mButton1 = (Button) findViewById(R.id.button1);
-	    mButton2 = (Button) findViewById(R.id.button2);
-	    mButton3 = (Button) findViewById(R.id.button3);
-	    mButton4 = (Button) findViewById(R.id.button4);
+    	mPlay = (Button) findViewById(R.id.play);
+	    mScores = (Button) findViewById(R.id.scores);
+	    mInfo = (Button) findViewById(R.id.info);
 	    mOptionsMenu = (LinearLayout) findViewById(R.id.start);
 	    mBackground = (ParallaxImageView)findViewById(R.id.background);
     }
     
     private void createEvents() {
-	    mButton1.setOnClickListener(new OnClickListener() {
+	    mPlay.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				Intent intent = new Intent(MainActivity.this, LevelActivity.class);
-	            intent.putExtra("level", mLastLevel);
+				Intent intent = new Intent(MainActivity.this, LevelSelectorActivity.class);
 	            startActivity(intent);
 	            finish();
 			}
 		});
-	    
-	    mButton2.setOnClickListener(new OnClickListener() {
-			public void onClick(View v) {
-				saveStatus(1,0);
-				mButton1.setVisibility(View.GONE);
-				Intent intent = new Intent(MainActivity.this, LevelActivity.class);
-				//Intent intent = new Intent(MainActivity.this, HangmanActivity.class);
-	            intent.putExtra("level", 1);
-	            startActivity(intent);
-	            finish();
-			}
-		});
-	    
-	    mButton3.setOnClickListener(new OnClickListener() {
+
+	    mScores.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				Intent intent = new Intent(MainActivity.this, ScoresActivity.class);
 		        startActivity(intent);
@@ -100,7 +83,7 @@ public class MainActivity extends Activity {
 			}
 		});
 	    
-	    mButton4.setOnClickListener(new OnClickListener() {
+	    mInfo.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				Intent intent = new Intent(MainActivity.this, InfoActivity.class);
 		        startActivity(intent);
@@ -162,27 +145,7 @@ public class MainActivity extends Activity {
         }
     }
     
-    /**
-     * Obtiene el último nivel visitado (1 si es la primera partida)
-     */
-    private void lastLevel() {
-    	//Comprobamos si se puede leer el status
-    	StatusController statusController = new StatusController(getApplicationContext());
-    	Status status = statusController.getStatus(1);
-    	int level = 1;
-    	
-    	if (null != status) {
-    		//Si el nivel es mayor que el primero mostramos la opción de continuar
-    		if (status.getLevel() > 1) {
-    			mButton1.setVisibility(View.VISIBLE);
-    			level = status.getLevel();
-    		}
-    	} else {
-    		status = new Status("usuario1");
-        	statusController.addStatus(status);
-    	}
-    	mLastLevel = level;
-    }
+    
 
     @Override
 	protected void onStart() {
@@ -197,14 +160,5 @@ public class MainActivity extends Activity {
 		EasyTracker.getInstance(this).activityStop(this);
 	}	
 
-	private void saveStatus(int level, int question) {
-		StatusController statusController = new StatusController(getApplicationContext());
-		Status status = statusController.getStatus(1);
-		status.setLevel(level);
-		status.setScore(0);
-		status.setLife(3);
-		statusController.update(status);
-		QuestionController questionController = new QuestionController(getApplicationContext());
-		questionController.reset();
-	}
+
 }

@@ -6,22 +6,18 @@ import com.lovelydeveloper.churrocore.R;
 
 public class Status {
 	private int id;
-    private String name;
     private int level;
     private int score;
-    private int difficulty;
     private int life;
+    private int finish;
     
- 
-    public Status(){}
- 
-    public Status (String name) {
+
+    public Status () {
     	super();
-        this.name = name;
         this.level = 1;
         this.score = 0;
-        this.difficulty = 2;
         this.life = 3;
+        this.finish = 0;
     }
  
     //getters & setters
@@ -32,14 +28,6 @@ public class Status {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 	public int getLevel() {
@@ -58,15 +46,16 @@ public class Status {
 		this.score = score;
 	}
 
-	public int getDifficulty() {
-		return difficulty;
+
+    public int getFinish() {
+		return finish;
 	}
 
-	public void setDifficulty(int difficulty) {
-		this.difficulty = difficulty;
+	public void setFinish(int finish) {
+		this.finish = finish;
 	}
-    
-    public int getLife() {
+
+	public int getLife() {
 		return life;
 	}
 
@@ -90,7 +79,7 @@ public class Status {
 
 	@Override
     public String toString() {
-        return "Status [id=" + id + ", name=" + name + ", level=" + level + ", score=" + score  + ", difficulty=" + difficulty+ ", life=" + life + "]";
+        return "Status [id=" + id + ", level=" + level + ", score=" + score  + ", lifes=" + life + "]";
     }
 
 }

@@ -199,7 +199,7 @@ public class LevelActivity extends Activity {
     	
     	//Obtenemos las vidas
     	StatusController statusController = new StatusController(getApplicationContext());
-		Status status = statusController.getStatus(1);
+		Status status = statusController.getStatus(mLevel);
     	mTextLifes.setText(status.getLifes(getApplicationContext()));
     	mTextLifesResult.setText(status.getLifes(getApplicationContext()));
     	mNumLifes = status.getLife();
@@ -310,9 +310,10 @@ public class LevelActivity extends Activity {
 
 		//Comprobamos si hay preguntas del nivel sin responder
 		ArrayList<Question> questions = questionController.getUnansweredQuestionsFromLevel(mLevel);
+		
 		if (null != questions && questions.size() > 0) {
 			//Hay más elementos de este nivel
-			saveStatus(mLevel, 0);
+			saveStatus(mLevel, 0, false);
 			Intent intent = new Intent(LevelActivity.this, LevelActivity.class);
 	        intent.putExtra("level", mLevel);
 	        startActivity(intent);
@@ -323,12 +324,14 @@ public class LevelActivity extends Activity {
 			questions = questionController.getUnansweredQuestionsFromLevel(mLevel);
 			if (null != questions && questions.size() > 0) {
 				//Hay más elementos del siguiente nivel
-				saveStatus(mLevel, 0);
-				Intent intent = new Intent(LevelActivity.this, LevelActivity.class);
+				saveStatus(mLevel - 1, 1, false);
+				saveStatus(mLevel, 0, true);
+				Intent intent = new Intent(LevelActivity.this, LevelSelectorActivity.class);
 		        intent.putExtra("level", mLevel);
 		        startActivity(intent);
+		        finish();
 			} else {
-				saveStatus(1, 0);
+				saveStatus(mLevel - 1, 1, false);
 				Intent intent = new Intent(LevelActivity.this, ChampionActivity.class);
 		        startActivity(intent);
 		        finish();
@@ -338,10 +341,10 @@ public class LevelActivity extends Activity {
 	
 	private int repeatLevel() {
 		StatusController statusController = new StatusController(getApplicationContext());
-		Status status = statusController.getStatus(1);
+		Status status = statusController.getStatus(mLevel);
 		int lifes = status.getLife() - 1;
 		if (lifes > 0) {
-			statusController.reduceLife(lifes);
+			statusController.reduceLife(mLevel, lifes);
 		}
 		return lifes;
 	}
@@ -514,7 +517,7 @@ public class LevelActivity extends Activity {
 			            		    	} else {
 			            		    		//Guardamos el estado del usuario
 			            		    		mScore = 0;
-			            		    		saveStatus(mLevel, 0);
+			            		    		saveStatus(mLevel, 0, false);
 			            		    		
 			            		    		Intent intent = new Intent(LevelActivity.this, GameOverActivity.class);
 			            		            startActivity(intent);
@@ -535,17 +538,22 @@ public class LevelActivity extends Activity {
 	    };
 	    mThread.start();
 	}
-
-	private void saveStatus(int level, int question) {
+	
+	private void saveStatus(int level, int finish, boolean newLevel) {
+		Log.d("TheChurroCore", "Salvando level: " + level + " finish: " + finish + "newLevel: " + newLevel);
 		StatusController statusController = new StatusController(getApplicationContext());
-		Status status = statusController.getStatus(1);
-		int puntuacion = status.getScore() + mScore;
+		Status status = statusController.getStatus(level);
+		int puntuacion = 0;
+		if (null != status && !newLevel) {
+			puntuacion = status.getScore() + mScore;
+		} else {
+			status = new Status();
+		}
 		status.setLevel(level);
 		status.setScore(puntuacion);
+		
 		statusController.update(status);
 	}
-	
-	
 	
 	private void crearAnuncio() {
 		//Crear anuncio
